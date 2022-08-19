@@ -1,38 +1,264 @@
-.App {
+@import "rsuite/dist/rsuite.css";
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap');
+
+@font-face {
+  font-family: 'ringbearermedium';
+  src: url('/public/title_font/ringm___-webfont.woff2') format('woff2'),
+       url('/public/title_font/ringm___-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'morris_romanbold';
+  src: url('/public/basic_font/morrisroman-black-webfont.woff2') format('woff2'),
+       url('/public/basic_font/morrisroman-black-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+body {
+  height: 100%;
+  position: relative;
+  min-height: 100vh;
+  background-image: url("/public/old_paper_bg.jpg");
+  background-color: rgb(243,221,197);
+  background-size: 99.5%;
+  font-family: 'morris_romanbold', 'Open Sans', sans-serif;
+}
+
+.audioPlayerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  margin-top: 10px;
+}
+
+.react-audio-player {
+  /* background-position: right;
+  background-image: url("/public/old_paper_bg.jpg"); */
+
+}
+
+audio::-webkit-media-controls-panel {
+  /* background-position: right; */
+  /* background-image: url("/public/old_paper_bg.jpg"); */
+  background-color: rgb(228,201,162);
+}
+
+#pageTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'ringbearermedium';
+  margin: 25px;
+}
+
+.searchbarContainer {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.searchbar {
+  width: 40%;
+  border: 2px solid black;
+  padding: 3px;
+  background-color: rgb(248, 236, 221);
+  opacity: 50%;
+  margin-bottom: 120px;
+  outline: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.bookImg {
+  width: 12vw;
+  margin-bottom: 1vw;
+  border: 1px solid rgb(228,201,162);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+/* Timeline styling below */
+
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 10px;
+}
+
+.timeline-text {
+  margin-top: 2vw;
+  margin-bottom: 1vw;
+  height: 11vw;
+  width: 35vw;
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 50%;
+  margin-top: -120px;
+  /* border: 2px solid black; */
+  background-image: url("/public/parch.png"); 
+  background-position: center; 
+  background-repeat: no-repeat, repeat; 
+  background-size: contain;
+}
+
+.timeline-item:nth-child(odd) {
+  align-self: flex-end;
+  padding-left: 10px;
+  background-position: center;
+}
+
+.timeline-item-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 50px;
+  position: relative;
+  max-width: 100%;
+  text-align: center;
+  font-family: 'La Belle Aurore', cursive;
+  margin-top: 6vw;
+  margin-bottom: 7vw;
+}
+
+/* .timeline-item-content::after {
+  content: ' ';
+  background-color: rgb(95, 76, 54);
+  box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  right: -7.5px;
+  top: calc(50% - 7.5px);
+  transform: rotate(45deg);
+  width: 15px;
+  height: 15px;
+}
+
+.timeline-item:nth-child(odd) .timeline-item-content::after {
+  right: auto;
+  left: -7.5px;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
+} */
+
+.circle {
+  border: 3px solid rgb(219, 155, 16);
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - 20px);
+  right: -40px;
+  width: 40px;
+  height: 40px;
+  z-index: 100;
+  background-image: url('/public/ring2.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.circle:hover {
+  background-color: rgba(219, 155, 16, 20%);
+  
+}
+
+.timeline-item:nth-child(odd) .circle {
+  right: auto;
+  left: -40px;
+}
+
+
+.popupCard {
+  visibility: hidden;
+  width: 40vw;
+  height: 40vw;
+  background-color: rgba(95, 76, 54, 20%);
+  text-align: center;
+  padding: 40px 0;
+  border-radius: 6px;
+  top: -17vw;
+  right: -40.3vw;
+  position: absolute;
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+
 }
 
-.App-link {
-  color: #61dafb;
+.timeline-item:nth-child(odd) .popupCard {
+  right: 105%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.circle:hover .popupCard {
+  visibility: visible;
 }
+
+@media (min-width: 1000px) {
+  .circle {
+    right: -120px;
+    width: 4vw;
+    height: 4vw;
+  }
+  .timeline-item:nth-child(odd) .circle {
+    right: auto;
+    left: -120px;
+  }
+ }
+
+ @media (min-width: 1000px) and (max-width: 1500px) {
+  .circle {
+    right: -70px;
+    width: 4vw;
+    height: 4vw;
+  }
+  .timeline-item:nth-child(odd) .circle {
+    right: auto;
+    left: -70px;
+  }
+ }
+
+ @media (max-width: 820px) {
+  .circle {
+    right: -35px;
+  }
+  .timeline-item:nth-child(odd) .circle {
+    right: auto;
+    left: -40px;
+  }
+ }
+
+ @media (max-width: 568px) {
+  .popupCard {
+    top: -15vw;
+  }
+ }
